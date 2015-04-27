@@ -13,7 +13,7 @@
 <div>
 	<h3>Comentarios</h3>
 	<%= render 'comments/form' %>
-	<ul class="nav nav-pills nav-stacked">
+	<ul class="nav nav-pills nav-stacked" id="comments-box">
 		<% @article.comments.each do |comment| %>
 		<li>
 			<%= comment.body %> - <%= comment.user.email %>
