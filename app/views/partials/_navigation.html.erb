@@ -8,12 +8,14 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="#/">Blog en Rails</a>
+          <%= link_to 'Blog en Rails', root_path, class: "navbar-brand" %>
         </div>
         <div class="collapse navbar-collapse" id="js-navbar-collapse">
           <ul class="nav navbar-nav">
-            	<li><%= link_to "Inicio", root_path %></li>
       				<li><%= link_to "Articulos", articles_path %></li>
+              <% @categories.each do |category| %>
+                <li><%= link_to category.name, category %></li>
+              <% end; %>
               <% if user_signed_in? %>
               <li>
                 <%= link_to "Cerrar sesión", destroy_user_session_path, method: :delete %>
@@ -25,7 +27,7 @@
               <li>
                 <%= link_to "Crear cuenta", new_user_registration_path %>
               </li>
-              <% end %>
+              <% end; %>
           </ul>
         </div>
       </div>
