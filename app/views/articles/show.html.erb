@@ -3,6 +3,11 @@
 	<p>
 		Escrito por: <%= @article.user.email %>
 	</p>
+	<div>
+		<% @article.categories.each do |category| %>
+		<%= link_to category.name, category %>
+		<% end %>
+	</div>
 	<div class="image image-rounded">
 		<%= image_tag @article.cover.url() %>
 	</div>
