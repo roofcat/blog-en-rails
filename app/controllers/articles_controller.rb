@@ -4,16 +4,21 @@ class ArticlesController < ApplicationController
 	before_action :authenticate_user!, except: [:show, :index]
 	# Setear variable @article
 	before_action :set_article, except: [:index, :new, :create]
+	before_action :authenticate_editor!, only: [:new, :create, :update]
+	before_action :authenticate_admin!, only: [:destroy]
 
+	# GET /articles
 	def index
 		@articles = Article.all
 	end
 
+	# GET /articles/:id
 	def show
 		@article.update_visits_count
 		@comment = Comment.new
 	end
 
+	# GET /articles/new
 	def new
 		@article = Article.new
 		@categories = Category.all
@@ -22,6 +27,7 @@ class ArticlesController < ApplicationController
 	def edit
 	end
 
+	# POST /articles
 	def create
 		#@article = Article.new(title: params[:article][:title], body: params[:article][:body])
 		@article = current_user.articles.new(article_params)
