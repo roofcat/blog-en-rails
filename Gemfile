@@ -30,6 +30,8 @@ gem 'devise'
 # para subir imagenes se necesita instalar imageclick en el sistema operativo
 gem 'paperclip'
 
+gem 'aasm'
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
