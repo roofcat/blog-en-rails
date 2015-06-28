@@ -5,11 +5,14 @@ class ArticlesController < ApplicationController
 	# Setear variable @article
 	before_action :set_article, except: [:index, :new, :create]
 	before_action :authenticate_editor!, only: [:new, :create, :update]
-	before_action :authenticate_admin!, only: [:destroy]
+	before_action :authenticate_admin!, only: [:destroy, :publish]
 
 	# GET /articles
 	def index
-		@articles = Article.all
+		#Primera llama "Select * From articles"
+		#@articles = Article.all
+		# Llamado del scopes
+		@articles = Article.publicados.ultimos
 	end
 
 	# GET /articles/:id
@@ -51,6 +54,11 @@ class ArticlesController < ApplicationController
 		else
 			render :edit
 		end
+	end
+
+	def publish
+		@article.publish!
+		redirect_to @article
 	end
 
 	private
