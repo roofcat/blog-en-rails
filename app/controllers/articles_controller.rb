@@ -12,7 +12,8 @@ class ArticlesController < ApplicationController
 		#Primera llama "Select * From articles"
 		#@articles = Article.all
 		# Llamado del scopes
-		@articles = Article.publicados.ultimos
+		# @articles = Article.publicados.ultimos
+		@articles = Article.paginate(page: params[:page], per_page:5).publicados.ultimos
 	end
 
 	# GET /articles/:id

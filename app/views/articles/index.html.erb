@@ -4,3 +4,4 @@
 		<%= article.body %> - <%= link_to 'Eliminar', article, method: :delete %>
 	</div>
 <% end %>
+<%= will_paginate @articles %>

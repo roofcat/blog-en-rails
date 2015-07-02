@@ -29,8 +29,10 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'devise'
 # para subir imagenes se necesita instalar imageclick en el sistema operativo
 gem 'paperclip'
-
+# Maquina de estados
 gem 'aasm'
+# paginacion
+gem 'will_paginate'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
