@@ -10,11 +10,11 @@ default: &default
   timeout: 5000
 
 development:
-  adapter: mysql2
-  username: root
+  adapter: postgresql
+  username: postgres
   password: 12345
   host: 127.0.0.1
-  port: 3306
+  port: 5432
   database: blog_dev
 
 # Warning: The database defined as "test" will be erased and
